@@ -5,8 +5,11 @@
       <mat-card-title>
         Convertir un archivo TXT separado por tabulaciones a KML
       </mat-card-title>
+      
     </mat-card-header>
-
+    <br>
+     <mat-divider></mat-divider>
+     <br>
     <mat-card-content>
       <div class="file-section">
         <button mat-raised-button color="primary" (click)="fileInput.click()">
@@ -84,8 +87,10 @@
       </div>
 
       <p *ngIf="!previewData.length" class="info-text">
-        Seleccioná un archivo TXT separado por tabulaciones para ver una vista previa y generar el KML.
+        Seleccioná un archivo TXT separado por tabulaciones (secuencial generado en GLM) para ver una vista previa y generar el KML. Luego el KML se carga en <a href="https://organicmaps.app/es/">Organic Maps</a> para visualizar los puntos de cada suministro.
+        
       </p>
+      
 
       <p class="note">
         Los datos no  se suben a ningún servidor: se procesan en el navegador (sin backend).
@@ -94,4 +99,5 @@
       <p class="custom-title">WR60</p>
     </mat-card-content>
   </mat-card>
+  
 </div>

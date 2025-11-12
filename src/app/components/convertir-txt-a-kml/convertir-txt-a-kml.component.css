@@ -11,7 +11,8 @@
   max-width: 900px;
   width: 100%;
   padding: 1.5rem;
-    background: #FFFFFF;
+  background: #FFFFFF;
+
 }
 
 .file-section {
@@ -55,4 +56,14 @@ table {
   margin-top: 1.5rem;
   font-weight: bold;
   color: #3f51b5;
+}
+
+mat-card-header {
+  justify-content: center; 
+}
+
+mat-card-title {
+  text-align: center;
+  width: 100%;
+  font-weight: 600;
 }

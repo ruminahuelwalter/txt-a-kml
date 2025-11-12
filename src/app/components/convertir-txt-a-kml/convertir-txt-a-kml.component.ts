@@ -3,6 +3,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import {MatDividerModule} from '@angular/material/divider';
 import { NgIf } from '@angular/common';
 
 
@@ -16,7 +17,8 @@ import { NgIf } from '@angular/common';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatDividerModule,
   ]
 })
 
