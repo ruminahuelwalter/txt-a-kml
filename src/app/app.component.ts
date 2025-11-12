@@ -1,21 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { TabKmlComponent } from './components/tab-kml/tab-kml.component';
-import { TxtToKmlComponent } from './components/txt-tab-to-kml/txt-tab-to-kml.component';
-import { PrimeNG } from 'primeng/config';
+import { ConvertirTxtAKmlComponent } from './components/convertir-txt-a-kml/convertir-txt-a-kml.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ TxtToKmlComponent],
+  imports: [ ConvertirTxtAKmlComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
   title = '';
-  constructor(private primeng: PrimeNG) {}
-  
-  ngOnInit() {
-      this.primeng.ripple.set(true);
-  }
+
 }

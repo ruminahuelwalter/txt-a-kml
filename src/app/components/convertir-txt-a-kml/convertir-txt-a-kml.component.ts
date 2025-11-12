@@ -1,30 +1,34 @@
 import { Component } from '@angular/core';
-import { FileUploadModule } from 'primeng/fileupload';
-import { ButtonModule } from 'primeng/button';
-import { TableModule } from 'primeng/table';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { NgIf } from '@angular/common';
 
 
 @Component({
-  selector: 'app-txt-to-kml',
-  templateUrl: './txt-tab-to-kml.component.html',
-  styleUrls: ['./txt-tab-to-kml.component.css'],
+  selector: 'convertir-txt-to-kml',
+  templateUrl: './convertir-txt-a-kml.component.html',
+  styleUrls: ['./convertir-txt-a-kml.component.css'],
   standalone: true,
   imports: [
     NgIf,
-    FileUploadModule,
-    ButtonModule,
-    TableModule,
-    CardModule,
-    PanelModule
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTableModule
   ]
 })
-export class TxtToKmlComponent {
+
+export class ConvertirTxtAKmlComponent {
   kmlData: string | null = null;
   previewData: any[] = [];
   fileName: string = 'export.kml';
+
+  displayedColumns: string[] = [
+  'folio', 'nombre', 'direccion', 'socio', 'sum', 'medidor', 'latitud', 'longitud'
+];
+
 
   onFileSelected(event: any) {
     const file: File = event.files?.[0] || event.target.files?.[0];

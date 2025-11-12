@@ -1,0 +1,97 @@
+
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>
+        Convertir un archivo TXT separado por tabulaciones a KML
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="file-section">
+        <button mat-raised-button color="primary" (click)="fileInput.click()">
+          <mat-icon>upload_file</mat-icon>
+          Seleccionar archivo
+        </button>
+
+        <input
+          #fileInput
+          type="file"
+          accept=".txt,.csv"
+          hidden
+          (change)="onFileSelected($event)"
+        />
+      </div>
+
+      <div class="button-group" *ngIf="previewData.length > 0">
+        <button mat-raised-button color="warn" (click)="clearData()">
+          <mat-icon>delete</mat-icon>
+          Borrar datos
+        </button>
+
+        <button mat-raised-button color="accent" (click)="downloadKML()" *ngIf="kmlData">
+          <mat-icon>download</mat-icon>
+          Descargar KML
+        </button>
+      </div>
+
+      <div class="table-container" *ngIf="previewData.length > 0">
+        <table mat-table [dataSource]="previewData" class="mat-elevation-z2">
+
+          <ng-container matColumnDef="folio">
+            <th mat-header-cell *matHeaderCellDef>Folio</th>
+            <td mat-cell *matCellDef="let row">{{ row.folio }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let row">{{ row.nombre }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="direccion">
+            <th mat-header-cell *matHeaderCellDef>Dirección</th>
+            <td mat-cell *matCellDef="let row">{{ row.direccion }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="socio">
+            <th mat-header-cell *matHeaderCellDef>Socio</th>
+            <td mat-cell *matCellDef="let row">{{ row.socio }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="sum">
+            <th mat-header-cell *matHeaderCellDef>Suministro</th>
+            <td mat-cell *matCellDef="let row">{{ row.sum }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="medidor">
+            <th mat-header-cell *matHeaderCellDef>Medidor</th>
+            <td mat-cell *matCellDef="let row">{{ row.medidor }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="latitud">
+            <th mat-header-cell *matHeaderCellDef>Latitud</th>
+            <td mat-cell *matCellDef="let row">{{ row.latitud }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="longitud">
+            <th mat-header-cell *matHeaderCellDef>Longitud</th>
+            <td mat-cell *matCellDef="let row">{{ row.longitud }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+
+      <p *ngIf="!previewData.length" class="info-text">
+        Seleccioná un archivo TXT separado por tabulaciones para ver una vista previa y generar el KML.
+      </p>
+
+      <p class="note">
+        Los datos no  se suben a ningún servidor: se procesan en el navegador (sin backend).
+      </p>
+
+      <p class="custom-title">WR60</p>
+    </mat-card-content>
+  </mat-card>
+</div>
