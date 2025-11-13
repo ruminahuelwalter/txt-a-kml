@@ -26,6 +26,7 @@ export class ConvertirTxtAKmlComponent {
   kmlData: string | null = null;
   previewData: any[] = [];
   fileName: string = 'export.kml';
+  nameRoute: string = 'Ruta';
 
   displayedColumns: string[] = [
   'folio', 'nombre', 'direccion', 'socio', 'sum', 'medidor', 'latitud', 'longitud'
@@ -55,6 +56,9 @@ export class ConvertirTxtAKmlComponent {
     for (let line of lines) {
       const cols = line.split('\t');
       if (cols.length < 18) continue;
+      if (this.nameRoute == 'Ruta'){
+        this.nameRoute = 'Ruta-' + cols[0]?.trim();
+      }
 
       data.push({
         folio: cols[1]?.trim(),
@@ -98,7 +102,7 @@ export class ConvertirTxtAKmlComponent {
     return `<?xml version="1.0" encoding="UTF-8"?>
       <kml xmlns="http://www.opengis.net/kml/2.2">
         <Document>
-          <name>Datos Exportados</name>
+          <name>${this.nameRoute}</name>
           ${placemarks}
         </Document>
       </kml>`;
